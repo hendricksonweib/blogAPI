@@ -26,7 +26,7 @@ async function getAllPost(){
         div.appendChild(body)
         div.appendChild(link)
 
-        
+        postConteiner.appendChild(div)
     })
 }
 getAllPost() 
