@@ -3,9 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>post</title>
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    
+    <p id="loading">Carregando</p>
+    <div id="post" class="hide">
+        <a href="index.html">voltar</a>
+        <div id="post-conteiner"></div>
+        <h2>Comentários:</h2>
+        <form id="comment-form">
+            <div>
+                <label for="email">Seu e-mail</label>
+                <input 
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Digite seu e-mail"
+                required
+                />
+            </div>
+            <div>
+                <label for="body">Seu comentário</label>
+                <textarea 
+                type="body"
+                name="body"
+                id="body"
+                placeholder="Digite seu comentário"
+                required
+                />
+            </div>
+            <input type="submit" value="Enviar"/>
+        </form>
+        <div id="comments-conteiner"></div>
+    </div>
 </body>
+<script src="./js/scripts.js"></script>
 </html>
