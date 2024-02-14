@@ -1,7 +1,15 @@
 const url = 'https://jsonplaceholder.typicode.com/posts'
 
 const loadingElement = document.querySelector('#loading')
-const postConteiner = document.querySelector('#post-conteiner')
+const postsConteiner = document.querySelector('#posts-conteiner')
+
+
+const postPage = document.querySelector("#post")
+const postConteiner = document.querySelector("#post-conteiner")
+const commentsConteiner = document.querySelector("#comments-conteiner")
+
+const urlSearchParams = new URLSearchParams(window.location.search) 
+const postId = urlSearchParams.get("id")
 
 async function getAllPost(){
     const response = await fetch(url)
@@ -26,7 +34,11 @@ async function getAllPost(){
         div.appendChild(body)
         div.appendChild(link)
 
-        postConteiner.appendChild(div)
+        postsConteiner.appendChild(div)
     })
 }
-getAllPost() 
+if(!postId){
+    getAllPost()
+} else {
+    console.log(postId)
+}
