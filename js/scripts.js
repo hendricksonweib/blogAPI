@@ -1,6 +1,6 @@
 const url = 'https://jsonplaceholder.typicode.com/posts'
 
-const loadingElement = document.querySelector('#loading')
+const loadingElement = document.querySelector('.loading')
 const postsConteiner = document.querySelector('#posts-conteiner')
 
 
@@ -37,8 +37,21 @@ async function getAllPost(){
         postsConteiner.appendChild(div)
     })
 }
+
+async function getPost(id){
+    const [responsePost, responseComments]= await Promise.all([
+        fetch(`${url}/${id}`),
+        fetch(`${url}/${id}/comments`)
+    ])
+
+    const dataPost = await responsePost.json()
+    const dataComments = await responseComments.json()
+    postPage.classList.remove("hide")
+    loadingElement.classList.add('hide')
+}
+
 if(!postId){
     getAllPost()
 } else {
-    console.log(postId)
+   getPost(postId)
 }
